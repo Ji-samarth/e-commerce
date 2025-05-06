@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Hero from './components/Hero'
 import Categories from './components/Categories';
 import CategoryProducts from './components/CategoryProd';
+import Footer from './components/Footer';
+
 
 const App = () => {
   return (
@@ -11,6 +13,7 @@ const App = () => {
       <Header/>
       <Hero/>
       <CategoryProducts/>
+      <Footer/>
     </>
   );
 };
