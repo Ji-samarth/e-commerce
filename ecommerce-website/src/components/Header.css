@@ -1,0 +1,44 @@
+/* src/components/Header.css */
+
+.header {
+  background-color: #F5F5F5;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  font-family: sans-serif;
+  border-bottom: 2px solid #F3BE54;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F3BE54;
+}
+
+.nav a,
+.profile a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.nav a:hover,
+.profile a:hover {
+  color: #F3BE54;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
