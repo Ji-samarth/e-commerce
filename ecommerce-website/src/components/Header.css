@@ -1,44 +1,104 @@
 /* src/components/Header.css */
 
+:root {
+  --accent-color: #F3BE54;
+  --background-color: #F5F5F5;
+  --text-color: #333;
+  --hover-color: #e0a94b;
+}
+
 .header {
-  background-color: #F5F5F5;
-  color: #333;
+  background-color: var(--background-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  font-family: sans-serif;
-  border-bottom: 2px solid #F3BE54;
+  padding: 18px 36px;
+  font-family: "Segoe UI", sans-serif;
+  border-bottom: 2px solid var(--accent-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #F3BE54;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 1px;
 }
 
 .nav a,
 .profile a {
   margin: 0 10px;
   text-decoration: none;
-  color: #333;
-  transition: color 0.3s;
+  color: var(--text-color);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav a::after,
+.profile a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: 0.3s ease;
+}
+
+.nav a:hover::after,
+.profile a:hover::after {
+  width: 100%;
 }
 
 .nav a:hover,
 .profile a:hover {
-  color: #F3BE54;
+  color: var(--hover-color);
 }
 
 .profile {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 .profile input {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
-  font-size: 0.9rem;
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.profile input:focus {
+  border-color: var(--accent-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .nav,
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .profile input {
+    width: 100%;
+    max-width: 100%;
+  }
 }

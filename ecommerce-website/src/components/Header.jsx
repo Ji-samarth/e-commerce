@@ -6,13 +6,15 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">Dheeza Shoes</div>
-      <nav className="nav explore">
+
+      <nav className="nav">
         <a href="#">Home</a>
         <a href="#">Explore</a>
         <a href="#">Support</a>
       </nav>
+
       <div className="profile">
-        <input type="text" placeholder="Search..." />
+        <input type="text" placeholder="Search shoes..." />
         <a href="#">Cart</a>
         <a href="#">Profile</a>
       </div>
