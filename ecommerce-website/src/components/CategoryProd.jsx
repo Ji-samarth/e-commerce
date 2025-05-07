@@ -1,61 +1,68 @@
-
+// src/components/CategoryProd.jsx
 import React, { useState } from "react";
 import products from "../data/products";
 import "./CategoryProd.css";
 
+const categories = [
+  "Featured",
+  "Sneakers",
+  "Sport",
+  "Formal",
+  "Boots",
+  "Flip-Flops"
+];
+
+const getRandomProducts = (count) => {
+  const shuffled = [...products].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
 const CategoryProducts = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Featured");
+  const [featuredProducts] = useState(getRandomProducts(3));
 
-  const [selectedCategory, setSelectedCategory] = useState("");
-
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-  };
-
-
-  const filtered = selectedCategory
-    ? products.filter((p) => p.category === selectedCategory)
-    : [];
+  const filteredProducts = 
+    selectedCategory === "Featured"
+      ? featuredProducts
+      : products.filter((p) => p.category.includes(selectedCategory));
 
   return (
-    <div>
-      <div className="category-buttons">
-        {[
-          "Sneakers",
-          "Sport Shoes",
-          "Formal Shoes",
-          "Boots",
-          "Flip-Flops",
-        ].map((cat) => (
+    <div className="category-products-container">
+      {/* Category Navigation */}
+      <div className="category-nav">
+        {categories.map((category) => (
           <button
-            key={cat}
-            className={`cat-btn ${
-              selectedCategory === cat ? "active" : ""
-            }`}
-            onClick={() => handleCategoryClick(cat)}
+            key={category}
+            className={`nav-item ${selectedCategory === category ? "active" : ""}`}
+            onClick={() => setSelectedCategory(category)}
           >
-            {cat}
+            {category}
           </button>
         ))}
       </div>
 
+      {/* Products Grid */}
       <div className="products-grid">
-        {selectedCategory === "" ? (
-          <p>Please select a category above.</p>
-        ) : filtered.length > 0 ? (
-          filtered.map((prod) => (
-            <div className="product-card" key={prod.key}>
-              <img
-                src={prod.image}
-                alt={prod.title}
-                className="product-image"
-              />
-              <h3 className="product-title">{prod.title}</h3>
-              <p className="product-desc">{prod.description}</p>
-              <p className="product-price">₹{prod.price}</p>
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <div className="product-card" key={product.id}>
+              <div className="product-image-wrapper">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="product-image"
+                />
+              </div>
+              <div className="product-info">
+                <h3 className="product-title">{product.title}</h3>
+                <p className="product-category">{product.category}</p>
+                <p className="product-price">₹{product.price}</p>
+                <button className="add-to-cart-btn">Add to Cart</button>
+              </div>
             </div>
           ))
         ) : (
-          <p>No products found in this category.</p>
+          <p className="no-products">No products found in this category.</p>
         )}
       </div>
     </div>
