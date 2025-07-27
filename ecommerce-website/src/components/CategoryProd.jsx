@@ -1,4 +1,4 @@
-// src/components/CategoryProd.jsx
+
 import React, { useState } from "react";
 import products from "../data/products";
 import "./CategoryProd.css";
@@ -57,7 +57,7 @@ const CategoryProducts = () => {
                 <h3 className="product-title">{product.title}</h3>
                 <p className="product-category">{product.category}</p>
                 <p className="product-price">₹{product.price}</p>
-                <button className="add-to-cart-btn">Add to Cart</button>
+                
               </div>
             </div>
           ))

@@ -1,4 +1,4 @@
-// src/components/Footer.jsx
+
 import React from "react";
 import "./Footer.css";
 
@@ -16,7 +16,7 @@ const Footer = () => {
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Categories</a></li>
-            <li><a href="#">Cart</a></li>
+            <li><a href="cart">Cart</a></li>
             <li><a href="#">Support</a></li>
           </ul>
         </div>

@@ -1,23 +1,27 @@
-// src/components/Header.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ cartItems }) => {
   return (
     <header className="header">
-      <Link to="/" className="logo">Dheeza Shoes</Link>
+      <Link to="/" className="logo">Dheeza <span>Shoes</span></Link>
 
       <nav className="nav">
         <Link to="/">Home</Link>
         <Link to="/explore">Explore</Link>
-        <a href="#">Support</a> {/* Keeping as regular link for now */}
+        <a href="#">Support</a>
       </nav>
 
       <div className="profile">
-        <input type="text" placeholder="Search shoes..." />
-        <a href="#">Cart</a>
-        <a href="#">Profile</a>
+        <Link to="/cart" className="cart-link">
+          🛒 Cart
+          {cartItems && cartItems.length > 0 && (
+            <span className="cart-count">{cartItems.length}</span>
+          )}
+        </Link>
+
+        <Link to="/login">👤 Profile</Link>
       </div>
     </header>
   );

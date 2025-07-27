@@ -1,4 +1,4 @@
-/* src/components/Explore.css */
+
 .explore-container {
     background-color: #F5F5F5;
     min-height: 100vh;
@@ -100,3 +100,13 @@
   .add-to-cart-btn:hover {
     background-color: #e0ac47;
   }
+  .explore-search-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 20px auto;
+  display: block;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
